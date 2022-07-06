@@ -1,0 +1,27 @@
+%grid--articles{
+    display: grid;
+    margin-top: 3vh;
+    margin-left: 5vw;
+    grid-template-columns: 24vw 24vw 24vw;
+    grid-template-rows: 60vh 60vh 60vh 60vh 60vh;
+    gap: 1em;
+}
+%sesion{
+    display: block;
+    position:fixed;
+    width: 33vw;
+    height: 90vh;
+    border-radius: 9px;
+    border:solid 3px $colorSecundario;
+    margin-left: 33vw;
+    margin-top: 5vh;
+    justify-items: center;
+    justify-content: center;
+    background-color: $colorSecundario;
+    color:$colorPrincipal;
+}
+%sesion-img{
+    width: 130px;
+    margin-top: 7vh;
+    margin-left: 35%;
+}

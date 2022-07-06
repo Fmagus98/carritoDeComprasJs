@@ -1,0 +1,554 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  font-family: "Roboto", sans-serif;
+}
+
+#webPage {
+  display: none;
+}
+
+#sesion2, #sesion3 {
+  display: block;
+  position: fixed;
+  width: 33vw;
+  height: 90vh;
+  border-radius: 9px;
+  border: solid 3px white;
+  margin-left: 33vw;
+  margin-top: 5vh;
+  justify-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: white;
+  color: black;
+}
+
+#sesion2 img, #sesion3 img {
+  width: 130px;
+  margin-top: 7vh;
+  margin-left: 35%;
+}
+
+#sesion1 {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+
+#sesion2 img:hover {
+  -webkit-transform: rotate(-6deg);
+          transform: rotate(-6deg);
+}
+
+#sesion3 img:hover {
+  -webkit-transform: rotate(-6deg);
+          transform: rotate(-6deg);
+}
+
+.textoPrincipal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10%;
+  color: black;
+}
+
+.textoSecundario {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 30px;
+  margin-top: 1vh;
+  margin-bottom: 0vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#usuarios {
+  margin-top: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 50%;
+}
+
+#formulario {
+  display: block;
+  height: 30vh;
+}
+
+.form--text {
+  display: block;
+  margin-top: 10%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form--input {
+  width: 200px;
+  height: 30px;
+}
+
+.form--submit {
+  display: inline;
+  width: 80px;
+  height: 30px;
+}
+
+.iniciarSesion {
+  display: inline;
+  width: 80px;
+  height: 30px;
+}
+
+#confirm-sesion {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  margin-bottom: 1vh;
+}
+
+#ingresarALaPagina {
+  display: block;
+  margin-top: 2vh;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+#ingresarALaPagina:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+#crearUsuario {
+  width: 94px;
+  height: 30px;
+  display: block;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin-top: 6vh;
+}
+
+#crearUsuario:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.crearUsuario {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.crearUsuario h2 {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  margin-top: 7vh;
+  margin-right: 1vw;
+}
+
+#formularioSesion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 35vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#volverIniciarSesion {
+  width: 94px;
+  height: 30px;
+  display: block;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin-left: 5vw;
+}
+
+#crearCuenta {
+  width: 94px;
+  height: 30px;
+  margin-top: 1.5vh;
+  display: block;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+.iniciarSesion {
+  display: block;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 7vh;
+  padding-left: 7vw;
+  width: 100%;
+}
+
+.iniciarSesion h2 {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  margin-top: 7vh;
+}
+
+.form--text2 {
+  display: block;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form--input2 {
+  width: 200px;
+  height: 20px;
+}
+
+.form--submit2 {
+  display: inline;
+  width: 80px;
+  height: 30px;
+}
+
+.sesionFail {
+  background-color: red;
+  color: white;
+  display: inline-block;
+  position: absolute;
+  top: 30vh;
+  left: 40vw;
+  z-index: 3;
+  width: 20vw;
+  padding: 4px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 2%;
+  -webkit-box-shadow: 0px 5px 4px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 5px 4px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 50% !important;
+}
+
+.logo {
+  width: 130px;
+}
+
+.logo-usuario {
+  width: 60px;
+}
+
+.logo-usuario img {
+  width: 100%;
+}
+
+#boton-carrito {
+  border: none;
+  color: black;
+  font-size: 40px;
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px 20px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#boton-carrito:hover {
+  cursor: pointer;
+  color: white;
+  background-color: black;
+}
+
+#boton-carrito:focus {
+  outline: none;
+}
+
+.productoEnCarrito {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 25% 20% 10% 10% 5%;
+      grid-template-columns: 30% 25% 20% 10% 10% 5%;
+  border: 1px solid white;
+  margin: 5px 0;
+  padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.productoEnCarrito:hover {
+  border: 2px solid white;
+}
+
+.botonCantidad {
+  color: black;
+  background-color: white;
+  font-size: 15px;
+  width: 27px;
+  border-radius: 30px;
+}
+
+.boton-eliminar {
+  color: white;
+  border: none;
+  font-size: 20px;
+}
+
+.boton-eliminar:hover {
+  cursor: pointer;
+}
+
+.boton-eliminar:focus {
+  outline: none;
+}
+
+#vaciar-carrito {
+  margin-left: 30px;
+  margin-bottom: 30px;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: white;
+  padding: 3px;
+}
+
+#vaciar-carrito:hover {
+  background-color: white;
+  color: black;
+}
+
+.seleccion {
+  width: 20vw;
+  text-align: center;
+}
+
+main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px 1fr;
+      grid-template-columns: 200px 1fr;
+}
+
+h1 {
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 50px;
+}
+
+#selecTalles {
+  width: 100%;
+}
+
+#contenedor-productos {
+  max-width: 80vw;
+  margin: 1vh 1vw 1vh 2vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+p {
+  line-height: 1.8;
+  font-size: 14px;
+  font-family: 'anton';
+}
+
+.precio {
+  font-size: 22px;
+}
+
+.producto {
+  background-color: black;
+  padding: 10px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.producto:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.card {
+  border: 1px solid black;
+}
+
+.card:hover {
+  -webkit-transform: rotate(-4deg);
+          transform: rotate(-4deg);
+}
+
+.boton-agregar {
+  padding: 3px;
+  color: white;
+  font-family: 'anton';
+  background-color: black;
+}
+
+.boton-agregar:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+}
+
+select {
+  display: inline;
+  text-align: center;
+  border: 1px solid white;
+}
+
+.modal-contenedor {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 5;
+}
+
+.modal-carrito {
+  position: relative;
+  background-color: white;
+  border: 1px solid black;
+  min-width: 500px;
+  padding: 0px;
+  margin-left: 200%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  color: white;
+}
+
+.modal-carrito-black {
+  background-color: black;
+  min-width: 500px;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+  padding: 1rem;
+}
+
+.modal-active .modal-carrito {
+  margin-left: 0;
+}
+
+.modal-carrito h3 {
+  color: white;
+  padding-bottom: 5px;
+  font-family: 'Anton', sans-serif;
+}
+
+.modal-carrito #carritoCerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  color: black;
+  border: none;
+  background-color: white;
+}
+
+.modal-carrito #carritoCerrar:hover {
+  cursor: pointer;
+}
+
+.modal-carrito #carritoCerrar:focus {
+  outline: none;
+}
+
+.modal-carrito .precioProducto {
+  padding-top: 10px;
+  margin-bottom: 9px;
+  margin-left: 30px;
+}
+
+.card .card-image .card-title {
+  color: black;
+  position: unset;
+  font-family: 'anton';
+}
+
+.card image img {
+  background-color: black;
+  opacity: 0.2;
+}
+
+#contador {
+  display: none;
+}
+
+.cantidad {
+  width: 30px;
+}
+/*# sourceMappingURL=main.css.map */

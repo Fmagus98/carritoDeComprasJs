@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The best buy</title>
+    <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="sesion1">
+        <div id="sesion2">
+            <img class="logo-sesion" src="img/logo.png" alt="logo">
+            <h2 class="textoSecundario"> Crear cuenta</h2>
+            <div id="formularioSesion">
+                <form id="formulario">
+                    <label class="form--text2" for="nombre">Nombre</label>
+                    <input class="form--input2" type="text" id="nombre" placeholder="ej:Federico" value="" required>
+                    <label class="form--text2" for="email">Email</label>
+                    <input class="form--input2" type="email" id="email" placeholder="ej:Federicomartearena@hotmail.com" value="" required>
+                    <label class="form--text2" for="contraseña">contraseña</label>
+                    <input class="form--input2" type="password" id="contraseña" placeholder="escribe tu contraseña" required>
+                    <input id="crearCuenta" class="form--submit" type="submit" value="Crear cuenta">
+                </form>
+            </div>
+            <div class="iniciarSesion">
+                <h2 id="confirm-sesion"></h2>
+                <h2>ya creaste una sesión?</h2><button id="volverIniciarSesion">inicia sesion</button>
+            </div>
+        </div>
+        <div id="sesion3">
+            <img class="logo-sesion" src="img/logo.png" alt="logo">
+            <h2 class="textoSecundario">Iniciar sesión</h2>
+            <div id="formularioSesion">
+                <form id="sesionInicio">
+                    <label class="form--text" for="email">Email</label>
+                    <input class="form--input" type="email" id="email-log" placeholder="ej:Federicomartearena@hotmail.com" value="" required>
+                    <label class="form--text" for="contraseña">contraseña</label>
+                    <input class="form--input" type="password" id="contraseña-log" placeholder="escribe tu contraseña"required>
+                    <input id="ingresarALaPagina" class="form--submit" type="submit" value="ingresar">
+                </form>
+            </div>
+            <div class="crearUsuario">
+                <h2 id="texto-validacion"></h2>
+                <h2>todavia no creaste una cuenta?</h2><button id="crearUsuario">crear cuenta</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="webPage">
+        <header>
+            <img class="logo" src="img/logo.png" alt="">
+
+            <input id="search" type="text" class="input" placeholder="Buscar producto">
+            <i class="logo-usuario"><img src="img/usuario.png" alt=""></i>
+            <button id="boton-carrito"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
+        </header>
+        <main>
+            <div class="seleccion">
+                <select id="selectCategorias">
+                    <option value="all">Todos</option>
+                    <option value="Frutas y verduras">Frutas y verduras</option>
+                    <option value="Carnes">Carnes</option>
+                    <option value="Bebidas">Bebidas</option>
+                </select>
+            </div>
+            <div id="contenedor-productos">
+            </div>
+            <div class="modal-contenedor">
+                <div class="modal-carrito">
+                    <div class="modal-carrito-black">
+                        <h3>Carrito</h3>
+                        <button id="carritoCerrar">x</button>
+                        <div id="carrito-contenedor">
+                        </div>
+                        <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+                        <div id="terminar" style="display: flex; justify-content: flex-end;"></div>
+                        <button id="vaciar-carrito">vaciar carrito</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/fetch.js" type="module"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/app.js" type="module"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
