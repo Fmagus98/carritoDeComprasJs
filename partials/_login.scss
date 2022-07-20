@@ -96,9 +96,10 @@
 
 #ingresarALaPagina {
     display: block;
-    margin-top: 2vh;
     background-color: black;
     color: white;
+    font-family: 'anton';
+    margin-top: 2vh;
     border-radius: 10px;
 }
 
@@ -108,11 +109,12 @@
 }
 
 #crearUsuario {
+    display: block;
     width: 94px;
     height: 30px;
-    display: block;
-    background-color: black;
+    font-family: 'anton';
     color: white;
+    background-color: black;
     border-radius: 10px;
     margin-top: 6vh;
 }
@@ -141,27 +143,29 @@
     height: 35vh;
     justify-content: center;
     align-items: center;
-    color: black;
+    color: $colorPrincipal;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 #volverIniciarSesion {
+    display: block;
+    background-color: $colorPrincipal;
+    color: $colorSecundario;
+    font-family: 'anton';
     width: 94px;
     height: 30px;
-    display: block;
-    background-color: black;
-    color: white;
     border-radius: 10px;
     margin-left: 5vw
 }
 
-#crearCuenta {
-    width: 94px;
-    height: 30px;
-    margin-top: 1.5vh;
+#crearCuenta { 
     display: block;
     background-color: black;
     color: white;
+    width: 94px;
+    height: 30px;
+    font-family: 'anton';
+    margin-top: 1.5vh;
     border-radius: 10px;
 }
 // #confirm-sesion{

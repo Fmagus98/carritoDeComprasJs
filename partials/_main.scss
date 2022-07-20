@@ -1,11 +1,14 @@
-
+.text-bienvenida{
+  font-size: 1.4rem; 
+  margin-bottom: 3vh;
+}
 .seleccion {
   width: 20vw;
   text-align: center;
 }
 main{
   display:grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 18vw 1fr;
 }
 h1 {
   color:$colorPrincipal;
@@ -17,10 +20,9 @@ h1 {
   width: 100%;
 }
 #contenedor-productos {
-  max-width: 80vw;
-  margin: 1vh 1vw 1vh 2vw;
+  max-width: 90vw;
+  padding: 1vh 1vw 1vh 1vw;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 p {
@@ -33,7 +35,8 @@ p {
 }
 .producto {
   background-color: $colorPrincipal;
-  padding: 10px;
+  padding: 1rem;
+  margin:0.7rem;
   margin-bottom: 20px;
   box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
 }
@@ -60,6 +63,7 @@ select {
   display: inline;
   text-align: center;
   border: 1px solid $colorSecundario;
+  font-family:'anton';
 }
 .modal-contenedor {
   position: fixed;
@@ -115,6 +119,8 @@ select {
   color: $colorPrincipal;
   border: none;
   background-color:$colorSecundario;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 .modal-carrito #carritoCerrar:hover {
   cursor: pointer;

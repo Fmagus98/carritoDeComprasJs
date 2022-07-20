@@ -18,6 +18,9 @@ header {
 .logo-usuario img{
   width: 100%;
 }
+.logo-usuario p{
+  text-align: center;
+}
 #boton-carrito {
   border: none;
   color: black;
@@ -52,10 +55,13 @@ header {
   background-color:$colorSecundario;
   font-size: 15px;
   width: 27px;
-  border-radius: 30px;
+  height: 27px;
+  border: 1px solid;
+  border-radius: 50%;
 }
 .boton-eliminar {
   color:$colorSecundario;
+  background-color: $colorPrincipal;
   border: none;
   font-size: 20px;
 }
@@ -76,6 +82,19 @@ header {
   padding: 3px;
 }
 #vaciar-carrito:hover{
+  background-color: $colorSecundario;
+  color:$colorPrincipal;
+}
+#finalizarCompra{
+  margin-left: 30px;
+  margin-bottom: 30px;
+  background-color: $colorPrincipal;
+  border: 1px solid $colorSecundario;
+  border-radius: 3px;
+  color:$colorSecundario;
+  padding: 3px;
+}
+#finalizarCompra:hover{
   background-color: $colorSecundario;
   color:$colorPrincipal;
 }

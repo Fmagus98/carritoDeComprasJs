@@ -4,6 +4,4 @@ const API = "/js/stock.json";
     const data= await response.json();
     return data
 }
-
 getData()
-

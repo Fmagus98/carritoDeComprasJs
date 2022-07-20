@@ -8,7 +8,6 @@ function crearUsuario() {
     document.getElementById("sesion3").style.display = "none";
 }
 
-
 //acción al tocar el boton iniciar sesion
 const volverIniciarSesiones = document.getElementById("volverIniciarSesion");
 volverIniciarSesiones.addEventListener("click", iniciarSesion);
@@ -17,13 +16,13 @@ function iniciarSesion() {
     document.getElementById("sesion3").style.display = "block";
 }
 
-
 //objeto constructor de usuarios
 function creacionDeUsuarios(nombre, email, contraseña) {
     this.nombre = nombre;
     this.email = email;
     this.contraseña = contraseña;
 }
+
 //variables de formulario crear usuario
 const sesion = []
 const formularioHtml = document.getElementById("crearCuenta");
@@ -38,6 +37,9 @@ const contraseñaSesion = document.getElementById("contraseña-log")
 //accion al ingresar los datos al crear usuario
 formularioHtml.addEventListener("click", agregarUsuarios);
 
+//array del usuario ingresado
+const UsuarioLogueado=[]
+
 //agrega usuarios
 function agregarUsuarios(e) {
     if (nombreHtml.value != "" && emailHtml.value != "" && contraseñaHtml.value != "") {
@@ -50,16 +52,32 @@ function agregarUsuarios(e) {
             title: "genial",
             text: "tu cuenta fue creada, ya puedes iniciar sesion",
             icon: "success",
-            confirm: "ok"
+            confirm: "ok",
+            color:"black",
+            confirmButtonColor:"black"
         })
+        localStorage.setItem('sesion', JSON.stringify(sesion))
     }
 }
+
 function failSesion(){
     Toastify({
         text: "el email y/o contraseña no son válidos, por favor ingrese los datos de nuevo",
         duration: "4000",
         className: "sesionFail"
     }).showToast();
+}
+function bienvenida(validarUsuario){
+    swal.fire({
+        imageUrl: "../img/logo.png",
+        imageWidth: "25%" ,
+        title:`<p class="text-bienvenida">!!bienvenido a the best buy ${validarUsuario.nombre}!!</p>`,
+        text: "the best buy es una tienda virtual en donde encontrarás frutas,verduras,bebidas y carnes",
+        footer: "empieza a comprar todo lo que necesitas :)",
+        color:"black",
+        showCancelButton: false,
+        showConfirmButton: false
+    })
 }
 
 //comprobar datos 
@@ -68,49 +86,50 @@ const comprobarSesion = document.getElementById("ingresarALaPagina")
 comprobarSesion.addEventListener("click", iniciarUsuario);
 //agrega usuarios
 function iniciarUsuario(e) {
-    if (emailSesion.value != "" && contraseñaSesion.value != "") {
         e.preventDefault();
-        if(sesion.length===0){
-            failSesion()
-        }
-        for (let valor = 0; valor < sesion.length; valor++) {
-            if (emailSesion.value === sesion[valor].email && contraseñaSesion.value === sesion[valor].contraseña) {
+        const validarUsuario = sesion.find(usuario => usuario.email === emailSesion.value && usuario.contraseña === contraseñaSesion.value) 
+            if(validarUsuario){
                 document.getElementById("sesion1").style.display = "none";
                 document.getElementById("webPage").style.display = "block";
+                UsuarioLogueado.push(validarUsuario)
+                infoCuenta(validarUsuario)
+                bienvenida(validarUsuario)
             }
-            else {
+            else{
                 failSesion()
             }
+            
         }
-    }
-}
 //-----paginaWeb-----
+
+const nombreDeUsuario = document.getElementById("userName")
 
 let carrito = []
 
 const contenedorProductos = document.getElementById('contenedor-productos');
 const contenedorCarrito = document.getElementById('carrito-contenedor');
 
-const botonTerminar = document.getElementById('terminar')
-const finCompra = document.getElementById('fin-compra')
 const botonVaciar = document.getElementById('vaciar-carrito')
+const finalizarCompras = document.getElementById('finalizarCompra');
 const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
 
 const selectCategorias = document.getElementById('selectCategorias')
 const buscador = document.getElementById('search')
 const stockProductos = await getData();
-console.log(stockProductos)
+//datos del usuario en la página
+const infoCuenta= (user) =>{
+nombreDeUsuario.innerText = `${user.nombre}`
+
+}
 //filtro
 selectCategorias.addEventListener('change', () => {
     selectCategorias.value == "all" ? mostrarProductos(stockProductos) : mostrarProductos(stockProductos.filter(elemento => elemento.categoria === selectCategorias.value))
 })
 //Buscador
 buscador.addEventListener('input', (e) => {
-    console.log(e.target.value);
     let buscaBusca = stockProductos.filter(producto => producto.nombre.toLowerCase().includes(e.target.value.toLowerCase()))
     mostrarProductos(buscaBusca)
-    console.log(buscaBusca)
 })
 //logica Ecommerce
 mostrarProductos(stockProductos)
@@ -182,7 +201,6 @@ botonVaciar.addEventListener('click', () => {
 
 const agregarAlCarrito = (prodId) => {
     const productoRepetido = carrito.find(prod => prod.id === prodId)
-    console.log(productoRepetido)
     if (productoRepetido) {
         productoRepetido.cantidad++
     }
@@ -198,6 +216,7 @@ const sumarCantidad = (prodId) => {
         if (prod.id === prodId) {
             prod.cantidad++
             actualizarCarrito()
+            console.log(UsuarioLogueado)
         }
     })
 }
@@ -214,7 +233,6 @@ const restarCantidad = (prodId) => {
 }
 
 function recuperar() {
-
     let recuperarLS = JSON.parse(localStorage.getItem('carrito'))
     if (recuperarLS) {
         for (const elemento of recuperarLS) {
@@ -224,8 +242,24 @@ function recuperar() {
         }
     }
 }
+let recuperarUsuario = JSON.parse(localStorage.getItem('sesion'))
+if (recuperarUsuario) {
+    for (const elemento of recuperarUsuario) {
+        sesion.push(elemento)
+    }
+}
 recuperar()
 
-
-
+finalizarCompras.addEventListener("click",()=>{
+    swal.fire({
+        imageUrl: "../img/logo.png",
+        imageWidth: "25%" ,
+        title:`<p class="text-bienvenida">!!gracias por comprar en The Best Buy ${nombreDeUsuario.textContent}!!</p>`,
+         text:`el pago es de $${precioTotal.textContent} `,
+        footer: "gracias por elegirnos, vuelve pronto :)",
+        color:"black",
+        showCancelButton: false,
+        showConfirmButton: false
+    })
+})
 

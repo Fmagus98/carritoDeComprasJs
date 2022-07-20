@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -14,7 +13,7 @@ body {
   display: none;
 }
 
-#sesion2, #sesion3 {
+#sesion3, #sesion2 {
   display: block;
   position: fixed;
   width: 33vw;
@@ -24,14 +23,12 @@ body {
   margin-left: 33vw;
   margin-top: 5vh;
   justify-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   background-color: white;
   color: black;
 }
 
-#sesion2 img, #sesion3 img {
+#sesion3 img, #sesion2 img {
   width: 130px;
   margin-top: 7vh;
   margin-left: 35%;
@@ -44,49 +41,35 @@ body {
 }
 
 #sesion2 img:hover {
-  -webkit-transform: rotate(-6deg);
-          transform: rotate(-6deg);
+  transform: rotate(-6deg);
 }
 
 #sesion3 img:hover {
-  -webkit-transform: rotate(-6deg);
-          transform: rotate(-6deg);
+  transform: rotate(-6deg);
 }
 
 .textoPrincipal {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   font-size: 1vh;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   margin-top: 10%;
   color: black;
 }
 
 .textoSecundario {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   font-size: 30px;
   margin-top: 1vh;
   margin-bottom: 0vh;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   color: black;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 #usuarios {
   margin-top: 25%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   width: 100%;
   height: 50%;
 }
@@ -99,7 +82,7 @@ body {
 .form--text {
   display: block;
   margin-top: 10%;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .form--input {
@@ -130,39 +113,35 @@ body {
 
 #ingresarALaPagina {
   display: block;
-  margin-top: 2vh;
   background-color: black;
   color: white;
+  font-family: "anton";
+  margin-top: 2vh;
   border-radius: 10px;
 }
 
 #ingresarALaPagina:hover {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 #crearUsuario {
+  display: block;
   width: 94px;
   height: 30px;
-  display: block;
-  background-color: black;
+  font-family: "anton";
   color: white;
+  background-color: black;
   border-radius: 10px;
   margin-top: 6vh;
 }
 
 #crearUsuario:hover {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 .crearUsuario {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .crearUsuario h2 {
@@ -174,46 +153,40 @@ body {
 }
 
 #formularioSesion {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 35vh;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 #volverIniciarSesion {
-  width: 94px;
-  height: 30px;
   display: block;
   background-color: black;
   color: white;
+  font-family: "anton";
+  width: 94px;
+  height: 30px;
   border-radius: 10px;
   margin-left: 5vw;
 }
 
 #crearCuenta {
-  width: 94px;
-  height: 30px;
-  margin-top: 1.5vh;
   display: block;
   background-color: black;
   color: white;
+  width: 94px;
+  height: 30px;
+  font-family: "anton";
+  margin-top: 1.5vh;
   border-radius: 10px;
 }
 
 .iniciarSesion {
   display: block;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   padding-top: 7vh;
   padding-left: 7vw;
   width: 100%;
@@ -228,7 +201,7 @@ body {
 
 .form--text2 {
   display: block;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .form--input2 {
@@ -257,18 +230,11 @@ body {
 }
 
 header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   padding: 15px 2%;
-  -webkit-box-shadow: 0px 5px 4px 3px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 5px 4px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 4px 3px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
 }
 
@@ -288,6 +254,10 @@ header {
   width: 100%;
 }
 
+.logo-usuario p {
+  text-align: center;
+}
+
 #boton-carrito {
   border: none;
   color: black;
@@ -295,7 +265,6 @@ header {
   background-color: white;
   border-radius: 30px;
   padding: 10px 20px;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
@@ -310,19 +279,13 @@ header {
 }
 
 .productoEnCarrito {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 30% 25% 20% 10% 10% 5%;
-      grid-template-columns: 30% 25% 20% 10% 10% 5%;
+  grid-template-columns: 30% 25% 20% 10% 10% 5%;
   border: 1px solid white;
   margin: 5px 0;
   padding: 5px 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .productoEnCarrito:hover {
@@ -334,11 +297,14 @@ header {
   background-color: white;
   font-size: 15px;
   width: 27px;
-  border-radius: 30px;
+  height: 27px;
+  border: 1px solid;
+  border-radius: 50%;
 }
 
 .boton-eliminar {
   color: white;
+  background-color: black;
   border: none;
   font-size: 20px;
 }
@@ -366,16 +332,34 @@ header {
   color: black;
 }
 
+#finalizarCompra {
+  margin-left: 30px;
+  margin-bottom: 30px;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: white;
+  padding: 3px;
+}
+
+#finalizarCompra:hover {
+  background-color: white;
+  color: black;
+}
+
+.text-bienvenida {
+  font-size: 1.4rem;
+  margin-bottom: 3vh;
+}
+
 .seleccion {
   width: 20vw;
   text-align: center;
 }
 
 main {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 200px 1fr;
-      grid-template-columns: 200px 1fr;
+  grid-template-columns: 18vw 1fr;
 }
 
 h1 {
@@ -390,22 +374,16 @@ h1 {
 }
 
 #contenedor-productos {
-  max-width: 80vw;
-  margin: 1vh 1vw 1vh 2vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  max-width: 90vw;
+  padding: 1vh 1vw 1vh 1vw;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 p {
   line-height: 1.8;
   font-size: 14px;
-  font-family: 'anton';
+  font-family: "anton";
 }
 
 .precio {
@@ -414,15 +392,14 @@ p {
 
 .producto {
   background-color: black;
-  padding: 10px;
+  padding: 1rem;
+  margin: 0.7rem;
   margin-bottom: 20px;
-  -webkit-box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
-          box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 .producto:hover {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 .card {
@@ -430,26 +407,25 @@ p {
 }
 
 .card:hover {
-  -webkit-transform: rotate(-4deg);
-          transform: rotate(-4deg);
+  transform: rotate(-4deg);
 }
 
 .boton-agregar {
   padding: 3px;
   color: white;
-  font-family: 'anton';
+  font-family: "anton";
   background-color: black;
 }
 
 .boton-agregar:hover {
-  -webkit-transform: scale(1.04);
-          transform: scale(1.04);
+  transform: scale(1.04);
 }
 
 select {
   display: inline;
   text-align: center;
   border: 1px solid white;
+  font-family: "anton";
 }
 
 .modal-contenedor {
@@ -458,16 +434,9 @@ select {
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: all 0.5s;
+  justify-content: center;
+  align-items: center;
   transition: all 0.5s;
   opacity: 0;
   visibility: hidden;
@@ -486,7 +455,6 @@ select {
   min-width: 500px;
   padding: 0px;
   margin-left: 200%;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   color: white;
 }
@@ -494,8 +462,7 @@ select {
 .modal-carrito-black {
   background-color: black;
   min-width: 500px;
-  -webkit-transform: rotate(-3deg);
-          transform: rotate(-3deg);
+  transform: rotate(-3deg);
   padding: 1rem;
 }
 
@@ -506,7 +473,7 @@ select {
 .modal-carrito h3 {
   color: white;
   padding-bottom: 5px;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
 }
 
 .modal-carrito #carritoCerrar {
@@ -517,6 +484,8 @@ select {
   color: black;
   border: none;
   background-color: white;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .modal-carrito #carritoCerrar:hover {
@@ -536,7 +505,7 @@ select {
 .card .card-image .card-title {
   color: black;
   position: unset;
-  font-family: 'anton';
+  font-family: "anton";
 }
 
 .card image img {
@@ -550,5 +519,4 @@ select {
 
 .cantidad {
   width: 30px;
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

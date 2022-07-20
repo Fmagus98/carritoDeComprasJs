@@ -1,7 +1,6 @@
 {
   "name": "landing-page",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,5 +12,14 @@
     "bootstrap": "^5.1.3",
     "normalize.css": "^8.0.1",
     "react-toastify": "^9.0.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fmagus98/carritoDeComprasJs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Fmagus98/carritoDeComprasJs/issues"
+  },
+  "homepage": "https://github.com/Fmagus98/carritoDeComprasJs#readme",
+  "description": ""
 }
