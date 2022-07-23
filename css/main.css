@@ -215,20 +215,6 @@ body {
   height: 30px;
 }
 
-.sesionFail {
-  background-color: red;
-  color: white;
-  display: inline-block;
-  position: absolute;
-  top: 30vh;
-  left: 40vw;
-  z-index: 3;
-  width: 20vw;
-  padding: 4px;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
 header {
   display: flex;
   justify-content: space-between;
@@ -259,11 +245,12 @@ header {
 }
 
 #boton-carrito {
+  width: 12vw;
   border: none;
   color: black;
   font-size: 40px;
   background-color: white;
-  border-radius: 30px;
+  border-radius: 7px;
   padding: 10px 20px;
   transition: all 0.3s;
 }

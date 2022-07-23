@@ -58,13 +58,18 @@ function agregarUsuarios(e) {
         })
         localStorage.setItem('sesion', JSON.stringify(sesion))
     }
+
 }
 
 function failSesion(){
     Toastify({
         text: "el email y/o contraseña no son válidos, por favor ingrese los datos de nuevo",
         duration: "4000",
-        className: "sesionFail"
+        gravity: "top",
+        position: "center",
+        style: {
+        background: "black",
+        },
     }).showToast();
 }
 function bienvenida(validarUsuario){
@@ -153,15 +158,38 @@ function mostrarProductos(array) {
         contenedorProductos.appendChild(div)
         const boton = document.getElementById(`agregar${producto.id}`)
         boton.addEventListener('click', () => {
-            agregarAlCarrito(producto.id)
+            agregarAlCarrito(producto)
             actualizarCarrito()
         })
     })
 }
+const notificacionAgregarProducto=(producto)=>{
+    Toastify({
+        text: `se ha agregado ${producto} a tu carrito`,
+        duration: "4000",
+        gravity: "bottom",
+        position: "right",
+        style: {
+        background: "black",
+        },
+    }).showToast();
+}
+const notificacionQuitarProducto=(producto)=>{
+    Toastify({
+        text: `se ha eliminado ${producto} a tu carrito`,
+        duration: "4000",
+        gravity: "bottom",
+        position: "right",
+        style: {
+        background: "black",
+        },
+    }).showToast();
+}
 const eliminarDelCarrito = (prodId) => {
-    const item = carrito.find((prod) => prod.id === prodId)
+    const item = carrito.find((prod) => prod.id === prodId.id)
     const indice = carrito.indexOf(item)
     carrito.splice(indice, 1)
+    prodId.cantidad =1
     actualizarCarrito()
 }
 const actualizarCarrito = () => {
@@ -186,7 +214,8 @@ const actualizarCarrito = () => {
         })
         const eliminandoDelCarrito = document.getElementById(`eliminarDelCarrito${prod.id}`)
         eliminandoDelCarrito.addEventListener('click', () => {
-            eliminarDelCarrito(prod.id)
+            eliminarDelCarrito(prod)
+            notificacionQuitarProducto(prod.nombre)
         })
     })
     const sumaContadorCarrito = carrito.reduce((acc, item) => acc+ item.cantidad,0)
@@ -196,17 +225,21 @@ const actualizarCarrito = () => {
 }
 botonVaciar.addEventListener('click', () => {
     carrito.length = 0;
+    stockProductos.forEach((item)=>{
+        item.cantidad=1
+    })
     actualizarCarrito()
 })
 
 const agregarAlCarrito = (prodId) => {
-    const productoRepetido = carrito.find(prod => prod.id === prodId)
+    const productoRepetido = carrito.find(prod => prod.id === prodId.id)
     if (productoRepetido) {
         productoRepetido.cantidad++
     }
     else {
-        const item = stockProductos.find(prod => prod.id === prodId)
+        const item = stockProductos.find(prod => prod.id === prodId.id)
         carrito.push(item)
+        notificacionAgregarProducto(prodId.nombre)
     }
     actualizarCarrito()
 }
