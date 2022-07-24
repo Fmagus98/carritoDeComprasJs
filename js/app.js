@@ -40,50 +40,64 @@ formularioHtml.addEventListener("click", agregarUsuarios);
 //array del usuario ingresado
 const UsuarioLogueado=[]
 
+
+
+
 //agrega usuarios
 function agregarUsuarios(e) {
     if (nombreHtml.value != "" && emailHtml.value != "" && contraseñaHtml.value != "") {
         e.preventDefault();
-        sesion.push(new creacionDeUsuarios(nombreHtml.value, emailHtml.value, contraseñaHtml.value))
-        nombreHtml.value = "";
-        emailHtml.value = "";
-        contraseñaHtml.value = "";
-        swal.fire({
-            title: "genial",
-            text: "tu cuenta fue creada, ya puedes iniciar sesion",
-            icon: "success",
-            confirm: "ok",
-            color:"black",
-            confirmButtonColor:"black"
-        })
-        localStorage.setItem('sesion', JSON.stringify(sesion))
+        const agregarUsuario = sesion.some(item => item.email === emailHtml.value)
+        if (agregarUsuario) {
+            sesionNoCreada()
+            console.log(agregarUsuario)
+        }
+        else {
+            sesion.push(new creacionDeUsuarios(nombreHtml.value, emailHtml.value, contraseñaHtml.value))
+            nombreHtml.value = "";
+            emailHtml.value = "";
+            contraseñaHtml.value = "";
+            localStorage.setItem('sesion', JSON.stringify(sesion))
+            sesionCreada()
+            console.log(agregarUsuario)
+        }
     }
-
 }
-
-function failSesion(){
-    Toastify({
-        text: "el email y/o contraseña no son válidos, por favor ingrese los datos de nuevo",
-        duration: "4000",
-        gravity: "top",
-        position: "center",
-        style: {
-        background: "black",
-        },
-    }).showToast();
+function sesionCreada() {
+    swal.fire({
+        title: "genial",
+        text: "tu cuenta fue creada, ya puedes iniciar sesion",
+        icon: "success",
+        confirm: "ok",
+        color: "black",
+        confirmButtonColor: "black"
+    })
 }
-function bienvenida(validarUsuario){
+function sesionNoCreada() {
+    swal.fire({
+        title: "lo siento",
+        text: "Este email ya tiene una cuenta creada, por favor inicia sesion",
+        icon: "error",
+        confirm: "ok",
+        color: "black",
+        confirmButtonColor: "black"
+    })
+}
+function bienvenida(validarUsuario) {
     swal.fire({
         imageUrl: "../img/logo.png",
-        imageWidth: "25%" ,
-        title:`<p class="text-bienvenida">!!bienvenido a the best buy ${validarUsuario.nombre}!!</p>`,
+        imageWidth: "25%",
+        title: `<p class="text-bienvenida">!!bienvenido a the best buy ${validarUsuario.nombre}!!</p>`,
         text: "the best buy es una tienda virtual en donde encontrarás frutas,verduras,bebidas y carnes",
         footer: "empieza a comprar todo lo que necesitas :)",
-        color:"black",
+        color: "black",
         showCancelButton: false,
         showConfirmButton: false
     })
 }
+
+
+
 
 //comprobar datos 
 const comprobarSesion = document.getElementById("ingresarALaPagina")
@@ -101,10 +115,21 @@ function iniciarUsuario(e) {
                 bienvenida(validarUsuario)
             }
             else{
-                failSesion()
+                sesionNoValida()
             }
             
         }
+function sesionNoValida() {
+    Toastify({
+        text: "el email y/o contraseña no son válidos, por favor ingrese los datos de nuevo",
+        duration: "4000",
+        gravity: "top",
+        position: "center",
+        style: {
+            background: "black",
+        },
+    }).showToast();
+}
 //-----paginaWeb-----
 
 const nombreDeUsuario = document.getElementById("userName")
