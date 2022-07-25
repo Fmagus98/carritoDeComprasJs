@@ -40,9 +40,6 @@ formularioHtml.addEventListener("click", agregarUsuarios);
 //array del usuario ingresado
 const UsuarioLogueado=[]
 
-
-
-
 //agrega usuarios
 function agregarUsuarios(e) {
     if (nombreHtml.value != "" && emailHtml.value != "" && contraseñaHtml.value != "") {
@@ -83,6 +80,17 @@ function sesionNoCreada() {
         confirmButtonColor: "black"
     })
 }
+function sesionNoValida() {
+    Toastify({
+        text: "el email y/o contraseña no son válidos, por favor ingrese los datos de nuevo",
+        duration: "4000",
+        gravity: "top",
+        position: "center",
+        style: {
+            background: "black",
+        },
+    }).showToast();
+}
 function bienvenida(validarUsuario) {
     swal.fire({
         imageUrl: "../img/logo.png",
@@ -95,9 +103,6 @@ function bienvenida(validarUsuario) {
         showConfirmButton: false
     })
 }
-
-
-
 
 //comprobar datos 
 const comprobarSesion = document.getElementById("ingresarALaPagina")
@@ -115,21 +120,10 @@ function iniciarUsuario(e) {
                 bienvenida(validarUsuario)
             }
             else{
-                sesionNoValida()
+                failSesion()
             }
             
         }
-function sesionNoValida() {
-    Toastify({
-        text: "el email y/o contraseña no son válidos, por favor ingrese los datos de nuevo",
-        duration: "4000",
-        gravity: "top",
-        position: "center",
-        style: {
-            background: "black",
-        },
-    }).showToast();
-}
 //-----paginaWeb-----
 
 const nombreDeUsuario = document.getElementById("userName")
@@ -264,8 +258,8 @@ const agregarAlCarrito = (prodId) => {
     else {
         const item = stockProductos.find(prod => prod.id === prodId.id)
         carrito.push(item)
-        notificacionAgregarProducto(prodId.nombre)
     }
+    notificacionAgregarProducto(prodId.nombre)
     actualizarCarrito()
 }
 
