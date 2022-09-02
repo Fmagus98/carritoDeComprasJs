@@ -47,7 +47,6 @@ function agregarUsuarios(e) {
         const agregarUsuario = sesion.some(item => item.email === emailHtml.value)
         if (agregarUsuario) {
             sesionNoCreada()
-            console.log(agregarUsuario)
         }
         else {
             sesion.push(new creacionDeUsuarios(nombreHtml.value, emailHtml.value, contraseñaHtml.value))
@@ -56,7 +55,6 @@ function agregarUsuarios(e) {
             contraseñaHtml.value = "";
             localStorage.setItem('sesion', JSON.stringify(sesion))
             sesionCreada()
-            console.log(agregarUsuario)
         }
     }
 }
