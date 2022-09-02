@@ -1,4 +1,4 @@
-<h1>Desing Inc<h1>
+<h1>The Best Buy<h1>
 <h3>This page simulates a e-commerce of superMarket<h3>
   <a href="https://desygn-inc.vercel.app/indexEs.html">See page</a>
 <br>
