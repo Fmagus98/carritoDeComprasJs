@@ -17,4 +17,6 @@
 <li>Toastify</li>
 <li>Sweet Alert2</li>
 </ul>
-
+<br>
+  <h2>coming soon</h2>
+  <p>responsive design</p>
