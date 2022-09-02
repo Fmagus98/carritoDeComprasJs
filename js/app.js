@@ -38,73 +38,91 @@ const contraseñaSesion = document.getElementById("contraseña-log")
 formularioHtml.addEventListener("click", agregarUsuarios);
 
 //array del usuario ingresado
-const UsuarioLogueado=[]
+const UsuarioLogueado = []
 
 //agrega usuarios
 function agregarUsuarios(e) {
     if (nombreHtml.value != "" && emailHtml.value != "" && contraseñaHtml.value != "") {
         e.preventDefault();
-        sesion.push(new creacionDeUsuarios(nombreHtml.value, emailHtml.value, contraseñaHtml.value))
-        nombreHtml.value = "";
-        emailHtml.value = "";
-        contraseñaHtml.value = "";
-        swal.fire({
-            title: "genial",
-            text: "tu cuenta fue creada, ya puedes iniciar sesion",
-            icon: "success",
-            confirm: "ok",
-            color:"black",
-            confirmButtonColor:"black"
-        })
-        localStorage.setItem('sesion', JSON.stringify(sesion))
+        const agregarUsuario = sesion.some(item => item.email === emailHtml.value)
+        if (agregarUsuario) {
+            sesionNoCreada()
+            console.log(agregarUsuario)
+        }
+        else {
+            sesion.push(new creacionDeUsuarios(nombreHtml.value, emailHtml.value, contraseñaHtml.value))
+            nombreHtml.value = "";
+            emailHtml.value = "";
+            contraseñaHtml.value = "";
+            localStorage.setItem('sesion', JSON.stringify(sesion))
+            sesionCreada()
+            console.log(agregarUsuario)
+        }
     }
-
 }
-
-function failSesion(){
+function sesionCreada() {
+    swal.fire({
+        title: "genial",
+        text: "tu cuenta fue creada, ya puedes iniciar sesion",
+        icon: "success",
+        confirm: "ok",
+        color: "black",
+        confirmButtonColor: "black"
+    })
+}
+function sesionNoCreada() {
+    swal.fire({
+        title: "lo siento",
+        text: "Este email ya tiene una cuenta creada, por favor inicia sesion",
+        icon: "error",
+        confirm: "ok",
+        color: "black",
+        confirmButtonColor: "black"
+    })
+}
+function sesionNoValida() {
     Toastify({
         text: "el email y/o contraseña no son válidos, por favor ingrese los datos de nuevo",
         duration: "4000",
         gravity: "top",
         position: "center",
         style: {
-        background: "black",
+            background: "black",
         },
     }).showToast();
 }
-function bienvenida(validarUsuario){
+function bienvenida(validarUsuario) {
     swal.fire({
         imageUrl: "../img/logo.png",
-        imageWidth: "25%" ,
-        title:`<p class="text-bienvenida">!!bienvenido a the best buy ${validarUsuario.nombre}!!</p>`,
+        imageWidth: "25%",
+        title: `<p class="text-bienvenida">!!bienvenido a the best buy ${validarUsuario.nombre}!!</p>`,
         text: "the best buy es una tienda virtual en donde encontrarás frutas,verduras,bebidas y carnes",
         footer: "empieza a comprar todo lo que necesitas :)",
-        color:"black",
+        color: "black",
         showCancelButton: false,
         showConfirmButton: false
     })
 }
-
 //comprobar datos 
 const comprobarSesion = document.getElementById("ingresarALaPagina")
 // accion al ingresar los datos en el inicio de sesion
 comprobarSesion.addEventListener("click", iniciarUsuario);
 //agrega usuarios
 function iniciarUsuario(e) {
-        e.preventDefault();
-        const validarUsuario = sesion.find(usuario => usuario.email === emailSesion.value && usuario.contraseña === contraseñaSesion.value) 
-            if(validarUsuario){
-                document.getElementById("sesion1").style.display = "none";
-                document.getElementById("webPage").style.display = "block";
-                UsuarioLogueado.push(validarUsuario)
-                infoCuenta(validarUsuario)
-                bienvenida(validarUsuario)
-            }
-            else{
-                failSesion()
-            }
-            
-        }
+    e.preventDefault();
+    const validarUsuario = sesion.find(usuario => usuario.email === emailSesion.value && usuario.contraseña === contraseñaSesion.value)
+    if (validarUsuario) {
+        document.getElementById("sesion1").style.display = "none";
+        document.getElementById("webPage").style.display = "block";
+        UsuarioLogueado.push(validarUsuario)
+        infoCuenta(validarUsuario)
+        bienvenida(validarUsuario)
+    }
+    else {
+        sesionNoValida()
+    }
+
+}
 //-----paginaWeb-----
 
 const nombreDeUsuario = document.getElementById("userName")
@@ -123,8 +141,8 @@ const selectCategorias = document.getElementById('selectCategorias')
 const buscador = document.getElementById('search')
 const stockProductos = await getData();
 //datos del usuario en la página
-const infoCuenta= (user) =>{
-nombreDeUsuario.innerText = `${user.nombre}`
+const infoCuenta = (user) => {
+    nombreDeUsuario.innerText = `${user.nombre}`
 
 }
 //filtro
@@ -163,25 +181,27 @@ function mostrarProductos(array) {
         })
     })
 }
-const notificacionAgregarProducto=(producto)=>{
+const notificacionAgregarProducto = (producto) => {
     Toastify({
         text: `se ha agregado ${producto} a tu carrito`,
         duration: "4000",
         gravity: "bottom",
         position: "right",
         style: {
-        background: "black",
+            background: "black",
+            color:"white",
+
         },
     }).showToast();
 }
-const notificacionQuitarProducto=(producto)=>{
+const notificacionQuitarProducto = (producto) => {
     Toastify({
         text: `se ha eliminado ${producto} a tu carrito`,
         duration: "4000",
         gravity: "bottom",
         position: "right",
         style: {
-        background: "black",
+            background: "black",
         },
     }).showToast();
 }
@@ -189,7 +209,7 @@ const eliminarDelCarrito = (prodId) => {
     const item = carrito.find((prod) => prod.id === prodId.id)
     const indice = carrito.indexOf(item)
     carrito.splice(indice, 1)
-    prodId.cantidad =1
+    prodId.cantidad = 1
     actualizarCarrito()
 }
 const actualizarCarrito = () => {
@@ -218,15 +238,21 @@ const actualizarCarrito = () => {
             notificacionQuitarProducto(prod.nombre)
         })
     })
-    const sumaContadorCarrito = carrito.reduce((acc, item) => acc+ item.cantidad,0)
+    const sumaContadorCarrito = carrito.reduce((acc, item) => acc + item.cantidad, 0)
     contadorCarrito.innerText = sumaContadorCarrito;
     precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
     localStorage.setItem('carrito', JSON.stringify(carrito))
+    if(carrito.length===0){
+        finalizarCompras.style.display = "none";
+    }
+    else{
+        finalizarCompras.style.display = "inline";
+    }
 }
 botonVaciar.addEventListener('click', () => {
     carrito.length = 0;
-    stockProductos.forEach((item)=>{
-        item.cantidad=1
+    stockProductos.forEach((item) => {
+        item.cantidad = 1
     })
     actualizarCarrito()
 })
@@ -283,14 +309,14 @@ if (recuperarUsuario) {
 }
 recuperar()
 
-finalizarCompras.addEventListener("click",()=>{
+finalizarCompras.addEventListener("click", () => {
     swal.fire({
         imageUrl: "../img/logo.png",
-        imageWidth: "25%" ,
-        title:`<p class="text-bienvenida">!!gracias por comprar en The Best Buy ${nombreDeUsuario.textContent}!!</p>`,
-         text:`el pago es de $${precioTotal.textContent} `,
+        imageWidth: "25%",
+        title: `<p class="text-bienvenida">!!gracias por comprar en The Best Buy ${nombreDeUsuario.textContent}!!</p>`,
+        text: `el pago es de $${precioTotal.textContent} `,
         footer: "gracias por elegirnos, vuelve pronto :)",
-        color:"black",
+        color: "black",
         showCancelButton: false,
         showConfirmButton: false
     })
