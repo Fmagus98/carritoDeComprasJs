@@ -13,7 +13,7 @@
 <ul>
 <li>Login(LocalStorage)</li>
 <li>Api call simulation with fetch(products)</li>
-<l1>POO</li>
+<li>POO</li>
 <li>Toastify</li>
 <li>Sweet Alert2</li>
 </ul>
