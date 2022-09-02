@@ -1,6 +1,6 @@
 <h1>The Best Buy<h1>
 <h3>This page simulates a e-commerce of superMarket<h3>
-  <a href="https://desygn-inc.vercel.app/indexEs.html">See page</a>
+  <a href="https://the-best-buy.vercel.app/">See page</a>
 <br>
 <h1>Built Using</h1>
 <ul>
