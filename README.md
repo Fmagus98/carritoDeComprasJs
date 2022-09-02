@@ -1,5 +1,5 @@
 <h1>The Best Buy<h1>
-<h3>This page simulates a e-commerce of superMarket<h3>
+<h3>This page simulates a e-commerce of a superMarket<h3>
   <a href="https://the-best-buy.vercel.app/">See page</a>
 <br>
 <h1>Built Using</h1>
