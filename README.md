@@ -7,15 +7,17 @@
 <li>Html</li>
 <li>Sass</li>
 <li>Vanilla Js</li>
+<li>POO</li>
+<li>Toastify</li>
+<li>Sweet Alert2</li>
 <ul>
 <br>
 <h2>Content</h2>
 <ul>
 <li>Login(LocalStorage)</li>
 <li>Api call simulation with fetch(products)</li>
-<li>POO</li>
-<li>Toastify</li>
-<li>Sweet Alert2</li>
+<li>product search by category and name<li>
+<li>product purchase simulation</li>
 </ul>
 <br>
   <h2>coming soon</h2>
